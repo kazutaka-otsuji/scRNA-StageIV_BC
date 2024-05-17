@@ -255,7 +255,15 @@ p <- DimPlot(ump_Meta_CCR, reduction = "umap",label = T, label.size = 7, pt.size
            legend.text = element_text(size = 15),
            plot.title = element_text(hjust = 0, size=20))
 ggsave(file="Figures/Fig.S2A_Meta_Celltype.png", plot=p,  dpi=300, bg="white",  units="in", width=6, height=4)
-        
+
+
+# Save files
+save(ump_Pre_CCR, file = "Files/ump_Pre_CCR.rda")
+save(ump_Post1_CCR, file = "Files/ump_Post1_CCR.rda")
+save(ump_Post2_CCR, file = "Files/ump_Post2_CCR.rda")
+save(ump_Meta_CCR, file = "Files/ump_Meta_CCR.rda")
+
+
         
 ### Merge 4 samples (w/o integration)
 ump_Pre_CCR@meta.data$batch <- "1st"
@@ -404,3 +412,7 @@ p <- DimPlot(object_integrated, reduction = "umap", group.by = "Clusters", label
            plot.title = element_text(hjust = 0, size=20),
            legend.key.size = unit(0, 'lines'))
 ggsave(file="Figures/Fig.S2C_STACAS_All_Cluster.png", plot=p,  dpi=300, bg="white", units="in", width=5, height=4)
+
+
+# Save files
+save(object_integrated, file = "Files/object_integrated.rda")
